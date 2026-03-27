@@ -1,5 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Domain.Common;
+using Domain.Entity;
 using System.Reflection;
 
 namespace Infrastructure.Persistence
@@ -9,6 +10,20 @@ namespace Infrastructure.Persistence
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
         }
+
+        public DbSet<User> Users => Set<User>();
+        public DbSet<Workspace> Workspaces => Set<Workspace>();
+        public DbSet<WorkspaceMember> WorkspaceMembers => Set<WorkspaceMember>();
+        public DbSet<WorkspaceInvitation> WorkspaceInvitations => Set<WorkspaceInvitation>();
+        public DbSet<Wallet> Wallets => Set<Wallet>();
+        public DbSet<Category> Categories => Set<Category>();
+        public DbSet<Tag> Tags => Set<Tag>();
+        public DbSet<Transaction> Transactions => Set<Transaction>();
+        public DbSet<TransactionTagMapping> TransactionTagMappings => Set<TransactionTagMapping>();
+        public DbSet<Debt> Debts => Set<Debt>();
+        public DbSet<DebtPayment> DebtPayments => Set<DebtPayment>();
+        public DbSet<Budget> Budgets => Set<Budget>();
+        public DbSet<Notification> Notifications => Set<Notification>();
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
